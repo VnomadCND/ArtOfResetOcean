@@ -1,0 +1,525 @@
+{
+  "$schema": "../edition.schema.json",
+  "id": "ocean",
+  "title": "The Art of Reset",
+  "subtitle": "Ocean Edition",
+  "cover": "cover",
+  "keepsakeArt": "05-lunar-waves",
+  "note": "Pages 1-5, 9 and 10 carry the exact values from the prototypes (coordinates are fractions of the square art). Pages 6, 7, 8, 11 and closing need tuning on the real art.",
+  "pages": [
+    {
+      "n": 1,
+      "art": "01-golden-moon",
+      "turnIn": "turn-01",
+      "lines": [
+        "Let yourself <em>soften</em>",
+        "into the rhythm"
+      ],
+      "interaction": "breathe",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.32
+        ],
+        "portrait": [
+          0.55,
+          0.36
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.428
+        },
+        "portrait": {
+          "v": 0.428
+        }
+      },
+      "moon": {
+        "x": 0.624,
+        "y": 0.247,
+        "r": 0.113
+      },
+      "fx": {
+        "glint": 1,
+        "twinkle": 1,
+        "bloom": 0.9,
+        "bloomColor": [
+          1,
+          0.86,
+          0.6
+        ]
+      },
+      "tint": "night",
+      "status": "tuned in prototype",
+      "options": {
+        "breaths": 3,
+        "inMs": 4000,
+        "outMs": 6000
+      }
+    },
+    {
+      "n": 2,
+      "art": "02-mint-moon-beach",
+      "turnIn": "turn-02",
+      "lines": [
+        "There is nothing to force",
+        "just <em>gently</em> arrive here"
+      ],
+      "interaction": "arrive",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.3
+        ],
+        "portrait": [
+          0.38,
+          0.4
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.6
+        },
+        "portrait": {
+          "v": 0.6
+        }
+      },
+      "moon": {
+        "x": 0.327,
+        "y": 0.258,
+        "r": 0.111
+      },
+      "fx": {
+        "glint": 0,
+        "twinkle": 0,
+        "bloom": 0.45,
+        "bloomColor": [
+          0.92,
+          1,
+          0.95
+        ],
+        "celebrateBoost": 0.3
+      },
+      "tint": "dawn",
+      "status": "tuned in prototype",
+      "options": {
+        "stillMs": 8000
+      }
+    },
+    {
+      "n": 3,
+      "art": "03-moon-bay",
+      "turnIn": "turn-03",
+      "lines": [
+        "Beneath the surface",
+        "there is more <em>calm</em>",
+        "than you realize"
+      ],
+      "interaction": "descend",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.2
+        ],
+        "portrait": [
+          0.42,
+          0
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.215
+        },
+        "portrait": {
+          "v": 0.2
+        }
+      },
+      "fxClip": "fx-03-dive",
+      "fxFrames": 90,
+      "moon": {
+        "x": 0.305,
+        "y": 0.4,
+        "r": 0.083
+      },
+      "fx": {
+        "glint": 0.15,
+        "twinkle": 0,
+        "bloom": 0.6,
+        "bloomColor": [
+          1,
+          0.9,
+          0.86
+        ]
+      },
+      "tint": "night",
+      "status": "tuned in prototype",
+      "options": {
+        "depthMeters": 30
+      }
+    },
+    {
+      "n": 4,
+      "art": "04-midnight-ocean",
+      "turnIn": "turn-04",
+      "lines": [
+        "Even when it shifts",
+        "you are still moving <em>forward</em>"
+      ],
+      "interaction": "move",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.4
+        ],
+        "portrait": [
+          0.62,
+          0
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.655
+        },
+        "portrait": {
+          "v": 0.7
+        }
+      },
+      "fxClip": "fx-04-current",
+      "fxFrames": 72,
+      "moon": {
+        "x": 0.68,
+        "y": 0.3,
+        "r": 0.105
+      },
+      "fx": {
+        "glint": 1,
+        "twinkle": 0.5,
+        "bloom": 0.7,
+        "bloomColor": [
+          1,
+          0.97,
+          0.88
+        ]
+      },
+      "tint": "night",
+      "shade": true,
+      "status": "tuned in prototype",
+      "options": {
+        "choices": [
+          "Work",
+          "Home",
+          "Health",
+          "Relationships",
+          "Plans",
+          "Something else"
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "art": "05-lunar-waves",
+      "turnIn": "turn-05",
+      "turnInFrom": {
+        "clip": "fx-04-current",
+        "frame": "last"
+      },
+      "lines": [
+        "You don’t have to hold on",
+        "let it <em>move through</em> you"
+      ],
+      "interaction": "release",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.22
+        ],
+        "portrait": [
+          0.62,
+          0
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.155,
+          "x": 0.07,
+          "align": "left"
+        },
+        "portrait": {
+          "v": 0.69
+        }
+      },
+      "guide": {
+        "landscape": {
+          "v": 0.43
+        }
+      },
+      "fxClip": "fx-05-ribbon",
+      "moon": {
+        "x": 0.663,
+        "y": 0.183,
+        "r": 0.065
+      },
+      "fx": {
+        "glint": 0.8,
+        "twinkle": 0.5,
+        "bloom": 0.85,
+        "bloomColor": [
+          1,
+          0.95,
+          0.92
+        ]
+      },
+      "tint": "plum",
+      "shade": "portrait",
+      "status": "tuned in prototype",
+      "options": {
+        "holdMs": 1500
+      }
+    },
+    {
+      "n": 6,
+      "art": "06-ocean-stars",
+      "turnIn": "turn-06",
+      "lines": [
+        "In stillness",
+        "everything begins to <em>settle</em>"
+      ],
+      "interaction": "snow-globe",
+      "masks": {
+        "stars": {
+          "maxY": 0.5
+        }
+      },
+      "status": "TODO: tune focus, words, moon and fx on the real art",
+      "tint": "night"
+    },
+    {
+      "n": 7,
+      "art": "07-moonlit-stars",
+      "turnIn": "turn-07",
+      "lines": [
+        "There is space here for you",
+        "to breathe and <em>expand</em>"
+      ],
+      "interaction": "make-room",
+      "status": "TODO: tune focus, words, moon and fx on the real art",
+      "tint": "night",
+      "options": {
+        "startZoom": 1.35,
+        "breaths": 3
+      }
+    },
+    {
+      "n": 8,
+      "art": "08-winter-beach-i",
+      "turnIn": "turn-08",
+      "lines": [
+        "Each moment offers",
+        "a quiet chance to <em>begin again</em>"
+      ],
+      "interaction": "sand",
+      "masks": {
+        "beach": {
+          "minY": 0.49
+        }
+      },
+      "status": "TODO: tune focus, words, moon and fx on the real art",
+      "tint": "dawn",
+      "fxClip": "fx-08-wave-wash"
+    },
+    {
+      "n": 9,
+      "art": "09-moonlit-ocean",
+      "turnIn": "turn-09",
+      "lines": [
+        "You don’t need to control it",
+        "just move with the <em>flow</em>"
+      ],
+      "interaction": "follow-light",
+      "focus": {
+        "landscape": [
+          0.5,
+          0
+        ],
+        "portrait": [
+          0.5,
+          0
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.105
+        },
+        "portrait": {
+          "v": 0.12
+        }
+      },
+      "moon": {
+        "x": 0.637,
+        "y": 0.252,
+        "r": 0.085
+      },
+      "fx": {
+        "glint": 0.7,
+        "twinkle": 0.6,
+        "bloom": 0.5,
+        "bloomColor": [
+          1,
+          0.96,
+          0.86
+        ]
+      },
+      "tint": "night",
+      "status": "tuned in prototype",
+      "options": {
+        "followMs": 10000,
+        "passMs": 16000,
+        "path": {
+          "landscape": 0.5,
+          "portrait": 0.62
+        }
+      }
+    },
+    {
+      "n": 10,
+      "art": "10-ocean-clouds",
+      "turnIn": "turn-10",
+      "lines": [
+        "You are allowed to",
+        "slow down and <em>soften</em> here"
+      ],
+      "interaction": "slow",
+      "focus": {
+        "landscape": [
+          0.5,
+          0.5
+        ],
+        "portrait": [
+          0.45,
+          0.5
+        ]
+      },
+      "words": {
+        "landscape": {
+          "v": 0.66
+        },
+        "portrait": {
+          "v": 0.66
+        }
+      },
+      "moon": {
+        "x": 0.462,
+        "y": 0.577,
+        "r": 0.068
+      },
+      "fx": {
+        "glint": 0.5,
+        "twinkle": 0.7,
+        "bloom": 0.7,
+        "bloomColor": [
+          1,
+          0.97,
+          0.9
+        ]
+      },
+      "tint": "night",
+      "shade": true,
+      "status": "tuned in prototype",
+      "options": {
+        "slowMs": 12000,
+        "goodSpeedPx": 90,
+        "fastSpeedPx": 240
+      }
+    },
+    {
+      "n": 11,
+      "art": "11-indigo-waters",
+      "turnIn": "turn-11",
+      "lines": [
+        "In this stillness",
+        "everything settles back <em>into place</em>"
+      ],
+      "interaction": "threads",
+      "masks": {
+        "threads": {
+          "minY": 0.5
+        }
+      },
+      "status": "TODO: tune focus, words, moon and fx on the real art",
+      "tint": "night",
+      "fxClip": "fx-11-sunset",
+      "options": {
+        "calmToFinish": 0.85
+      }
+    }
+  ],
+  "closing": {
+    "n": "closing",
+    "art": "11-indigo-waters",
+    "artFrom": {
+      "clip": "fx-11-sunset",
+      "frame": "last"
+    },
+    "lines": [
+      "Your <em>reset</em>"
+    ],
+    "focus": {
+      "landscape": [
+        0.5,
+        0.22
+      ],
+      "portrait": [
+        0.62,
+        0
+      ]
+    },
+    "words": {
+      "landscape": {
+        "v": 0.14
+      },
+      "portrait": {
+        "v": 0.1
+      }
+    },
+    "guide": {
+      "landscape": {
+        "v": 0.47
+      },
+      "portrait": {
+        "v": 0.42
+      }
+    },
+    "moon": {
+      "x": 0.663,
+      "y": 0.183,
+      "r": 0.065
+    },
+    "fx": {
+      "glint": 0.8,
+      "twinkle": 0.5,
+      "bloom": 0.85,
+      "bloomColor": [
+        1,
+        0.95,
+        0.92
+      ]
+    },
+    "tint": "plum",
+    "shade": true,
+    "status": "TODO: art is now the last frame of fx-11-sunset; re-tune"
+  },
+  "tints": {
+    "night": {
+      "glass": "3,16,34",
+      "text": "light"
+    },
+    "dawn": {
+      "glass": "255,240,232",
+      "text": "rose"
+    },
+    "plum": {
+      "glass": "30,8,44",
+      "text": "light"
+    }
+  }
+}

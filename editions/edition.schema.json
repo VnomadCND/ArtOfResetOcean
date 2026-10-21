@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://spacefrogdesigns.com/art-of-reset/edition.schema.json",
+  "title": "Art of Reset edition",
+  "description": "One edition of the book: page order, words, interactions and the per-page values tuned on the art. Coordinates are fractions of the square art (0 to 1, from the top left).",
+  "type": "object",
+  "required": ["id", "title", "cover", "pages", "closing", "tints"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "subtitle": { "type": "string" },
+    "cover": { "$ref": "#/definitions/assetName" },
+    "keepsakeArt": { "$ref": "#/definitions/assetName" },
+    "note": { "type": "string" },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/page" }
+    },
+    "closing": { "$ref": "#/definitions/closing" },
+    "tints": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["glass", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "glass": { "type": "string", "pattern": "^\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*$", "description": "r,g,b of the soft glass behind guidance" },
+          "text": { "enum": ["light", "rose"] }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "assetName": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "A file name in source/editions/<id>/ without folder or extension"
+    },
+    "unit": { "type": "number", "minimum": 0, "maximum": 1 },
+    "point": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/unit" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "rgb": {
+      "type": "array",
+      "items": { "type": "number", "minimum": 0, "maximum": 1 },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "focus": {
+      "type": "object",
+      "required": ["landscape", "portrait"],
+      "additionalProperties": false,
+      "properties": {
+        "landscape": { "$ref": "#/definitions/point" },
+        "portrait": { "$ref": "#/definitions/point" }
+      }
+    },
+    "placement": {
+      "type": "object",
+      "required": ["v"],
+      "additionalProperties": false,
+      "properties": {
+        "v": { "$ref": "#/definitions/unit", "description": "vertical position on the art" },
+        "x": { "$ref": "#/definitions/unit", "description": "left edge as a fraction of the screen width (with align left)" },
+        "align": { "enum": ["left", "center"] }
+      }
+    },
+    "placements": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "landscape": { "$ref": "#/definitions/placement" },
+        "portrait": { "$ref": "#/definitions/placement" }
+      }
+    },
+    "moon": {
+      "type": "object",
+      "required": ["x", "y", "r"],
+      "additionalProperties": false,
+      "properties": {
+        "x": { "$ref": "#/definitions/unit" },
+        "y": { "$ref": "#/definitions/unit" },
+        "r": { "$ref": "#/definitions/unit" }
+      }
+    },
+    "fx": {
+      "type": "object",
+      "description": "Art shader settings. Every effect defaults to off.",
+      "additionalProperties": false,
+      "properties": {
+        "glint": { "type": "number", "minimum": 0 },
+        "twinkle": { "type": "number", "minimum": 0 },
+        "bloom": { "type": "number", "minimum": 0 },
+        "bloomColor": { "$ref": "#/definitions/rgb" },
+        "celebrateBoost": { "type": "number", "minimum": 0 }
+      }
+    },
+    "frameRef": {
+      "type": "object",
+      "description": "A frame of a clip used in place of a still",
+      "required": ["clip", "frame"],
+      "additionalProperties": false,
+      "properties": {
+        "clip": { "$ref": "#/definitions/assetName" },
+        "frame": { "enum": ["first", "last"] }
+      }
+    },
+    "masks": {
+      "type": "object",
+      "description": "Extra images build-assets derives from this page's art. Fractions of the square art.",
+      "additionalProperties": false,
+      "properties": {
+        "stars": {
+          "type": "object", "description": "Star map (bright warm points) plus the sky with the stars removed",
+          "required": ["maxY"], "additionalProperties": false,
+          "properties": { "maxY": { "$ref": "#/definitions/unit", "description": "stars are only looked for above this line" } }
+        },
+        "beach": {
+          "type": "object", "description": "Mask of the sand that can be written on",
+          "required": ["minY"], "additionalProperties": false,
+          "properties": { "minY": { "$ref": "#/definitions/unit", "description": "the horizon: no beach above this line" } }
+        },
+        "threads": {
+          "type": "object", "description": "Soft mask of the gold threads that the warp moves",
+          "required": ["minY"], "additionalProperties": false,
+          "properties": { "minY": { "$ref": "#/definitions/unit", "description": "threads are only looked for below this line" } }
+        }
+      }
+    },
+    "line": { "type": "string", "minLength": 1, "description": "One affirmation line; the key word wrapped in <em>" },
+    "sceneCommon": {
+      "properties": {
+        "art": { "$ref": "#/definitions/assetName" },
+        "lines": { "type": "array", "items": { "$ref": "#/definitions/line" }, "minItems": 1, "maxItems": 3 },
+        "focus": { "$ref": "#/definitions/focus" },
+        "words": { "$ref": "#/definitions/placements" },
+        "guide": { "$ref": "#/definitions/placements" },
+        "moon": { "$ref": "#/definitions/moon" },
+        "fx": { "$ref": "#/definitions/fx" },
+        "tint": { "type": "string" },
+        "shade": { "oneOf": [{ "type": "boolean" }, { "enum": ["landscape", "portrait"] }] },
+        "status": { "type": "string" }
+      }
+    },
+    "page": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/sceneCommon" }],
+      "required": ["n", "art", "lines", "interaction", "tint"],
+      "additionalProperties": false,
+      "properties": {
+        "n": { "type": "integer", "minimum": 1 },
+        "art": true, "lines": true, "focus": true, "words": true, "guide": true, "moon": true, "fx": true, "tint": true, "shade": true, "status": true,
+        "turnIn": { "$ref": "#/definitions/assetName", "description": "Page-turn clip that ends on this page's art. Missing file: the page crossfades." },
+        "turnInFrom": { "$ref": "#/definitions/frameRef", "description": "The frame turnIn starts on, when it is not the previous page's art" },
+        "fxClip": { "$ref": "#/definitions/assetName" },
+        "fxFrames": { "type": "integer", "minimum": 2, "description": "fxClip is scrubbed by the gesture from a frame pack of this many frames" },
+        "interaction": {
+          "enum": ["breathe", "arrive", "descend", "move", "release", "snow-globe", "make-room", "sand", "follow-light", "slow", "threads"]
+        },
+        "options": { "type": "object" },
+        "masks": { "$ref": "#/definitions/masks" }
+      }
+    },
+    "closing": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/sceneCommon" }],
+      "required": ["art", "lines", "tint"],
+      "additionalProperties": false,
+      "properties": {
+        "n": { "const": "closing" },
+        "art": true, "lines": true, "focus": true, "words": true, "guide": true, "moon": true, "fx": true, "tint": true, "shade": true, "status": true,
+        "artFrom": { "$ref": "#/definitions/frameRef", "description": "Use this clip frame as the closing still; art is the fallback" }
+      }
+    }
+  }
+}

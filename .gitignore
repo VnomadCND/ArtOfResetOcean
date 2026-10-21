@@ -1,0 +1,10 @@
+node_modules/
+dist/
+public/editions/
+source/
+.cache/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+Thumbs.db

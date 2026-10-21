@@ -1,0 +1,27 @@
+{
+  "name": "art-of-reset-digital",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "assets": "node scripts/build-assets.mjs",
+    "check-assets": "node scripts/check-assets.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "vite-plugin-pwa": "^2.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "ajv": "^8.20.0",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}
